@@ -1,0 +1,11 @@
+FROM python:3
+
+WORKDIR /usr/src/app
+
+COPY requirements.txt ./
+# GUI should have build logs
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY ./script.py ./
+# GUI should have run logs
+CMD ["python", "./script.py"]
